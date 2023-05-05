@@ -1,0 +1,26 @@
+---
+ - name: debug&register
+   hosts: bat22
+   tasks:
+     - name: server kernel
+       command: df -h
+       register: bhargav
+     - debug:
+          var: bhargav.stdout
+~
+
+---
+ - name: install multiple pkgs
+   hosts: bat22
+   tasks:
+     - name: install httpd pkg
+       yum: name=httpd state=present
+
+     - name: install ftp pkg
+       yum: name=ftp state=present
+
+     - name: install vsftpd pkg
+       yum: name=vsftpd state=present
+
+     - name: install samba pkg
+       yum: name=samba state=present
