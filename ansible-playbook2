@@ -1,0 +1,18 @@
+---
+ - name: service multiple starts
+   hosts: bat22
+   tasks:
+     - name: service httpd start
+       service:
+        name: httpd
+        state: started
+        enabled: yes
+
+     - name: service sshd start
+       service:
+        name: sshd
+        state: started
+        enabled: yes
+        tags: ram1
+		
+    
