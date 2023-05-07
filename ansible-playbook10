@@ -1,0 +1,17 @@
+---
+ - name: checking service status
+   hosts: bat22
+   tasks:
+    - name: service sshd
+      command: service sshd status
+      register: sshd
+    - debug: var=sshd.stdout_lines
+
+    - name: service httpd
+      command: service httpd status
+      register: httpd
+    - debug: var=httpd.stdout_lines
+
+    - name: service smb
+      command: service smb status
+      register: smb
